@@ -9,6 +9,8 @@
                    displayName="Linker Files"
                    projectFiles="true">
     </logicalFolder>
+    <logicalFolder name="f1" displayName="New Folder 1" projectFiles="true">
+    </logicalFolder>
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
@@ -53,6 +55,12 @@
         <makeCustomizationNormalizeHexFile>false</makeCustomizationNormalizeHexFile>
       </makeCustomizationType>
       <MPASMWIN-AS>
+        <property key="cross.reference.file" value=""/>
+        <property key="default.radix" value="HEX"/>
+        <property key="enable.case.sensitivity" value="true"/>
+        <property key="hex.output.format" value="INHX32"/>
+        <property key="preprocessor.macros" value=""/>
+        <property key="warning.level" value="0"/>
       </MPASMWIN-AS>
       <MPASMWIN-LD>
         <property key="cod-file" value="false"/>

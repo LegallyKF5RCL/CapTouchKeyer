@@ -1,0 +1,97 @@
+Cap Touch Keyer
+PseudoCode
+12/30/2013
+Brian McRee
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~INTERRUPT ON CHANGE~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+*currently ignoring bouncy
+
+-if there is no input
+	-do nothing
+-if a dit is pressed
+	-is dah also being pressed?
+		-yes
+			-change state to "iambic"
+		-no
+			-change state to "dit"
+-if a dah is pressed
+	-is dit also being pressed?
+		-yes
+			-change state ot "iambic"
+		-no
+			-change state to "dah"
+-if the timer is not on
+	-turn on the timer
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~TIMER INTERRUPT~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-is there intended output already? (this includes pauses between sequences)
+	-wait until the output is finished sending
+
+-is the state iambic?
+	-yes
+		-was the last output a dit?
+			-yes
+				-output CW for 3 units
+				-output nothing for 1 unit
+			-no
+				-output CW for 1 unit
+				-output nothing for 1 unit
+	
+-is the state "dit" ?
+*is the state "dit" and not "dah"?
+**what if we interrupt and go to iambic while after the previous decision was made (look at interrupt priority);
+	-yes
+		-output CW for 1 unit
+		-output nothing for 1 unit
+	-no
+		-is the state "Dah"
+			-yes
+				-output CW for 3 units
+				-output nothing for 1 unit
+			-no
+				-turn off timer
+				-drive the output pin low
+-leave
+					
+
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
